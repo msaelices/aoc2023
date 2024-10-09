@@ -1,6 +1,7 @@
 from memory.unsafe_pointer import UnsafePointer
 from memory import memcpy
 from collections import List
+from utils import StringRef
 
 from wrappers import minibench
 
