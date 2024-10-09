@@ -23,7 +23,7 @@ struct MultiMatcher:
     var pfx: List[Int32]
     var msk: List[Int32]
 
-    fn __init__(inout self, words: VariadicList[StringLiteral]):
+    fn __init__(inout self, words: List[String]):
         self.fcv = List[UInt8]()
         self.pfx = List[Int32]()
         self.msk = List[Int32]()
@@ -89,11 +89,11 @@ fn main() raises:
         a1 += lsum
 
     # Construct matchers for all words. When looking backwards, the words have to be reversed.
-    # Fun fact - VariadicList apparently can hold literals, but cannot hold Strings.
+    # Fun fact - List apparently can hold literals, but cannot hold Strings.
     # Variadic since other list variants only make sense in some very specific contexts
     # like when you only use predetermined list sizes and don't iterate over the list.
-    m = MultiMatcher(VariadicList[StringLiteral]("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"))
-    r = MultiMatcher(VariadicList[StringLiteral]("orez", "eno", "owt", "eerht", "ruof", "evif", "xis", "neves", "thgie", "enin"))
+    m = MultiMatcher(List[String]("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"))
+    r = MultiMatcher(List[String]("orez", "eno", "owt", "eerht", "ruof", "evif", "xis", "neves", "thgie", "enin"))
 
     # Similar to the part 1, this does the digits checks and also uses the multi-matchers
     # to find words.
