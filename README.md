@@ -37,7 +37,7 @@ This will create temporary `all_{python3|pypy3|mojo}_{pc|mac}.txt` files. Only P
 Visualisations
 ==============
 
-The vis/ directory contains visualisations code - written in Pythin, with PyGame. You can run each one directly:
+The vis/ directory contains visualisations code - written in Python, with PyGame. You can run each one directly:
 
 
 ```
