@@ -20,6 +20,18 @@ The final newline should be stripped from the inputs (sorry about this, I actual
 
 Only the standard library is required for Mojo solutions. Python solutions may require numpy. 
 
+You can download all the inputs for all days with the `get-inputs.sh` script. For this to work you need to have cookies.txt in the current directory, which you can get by inspecting your session cookie in the browser and saving it. There is a `cookies.txt.template` file for this purpose so you can:
+
+```
+$ cp cookies.txt.template cookies.txt
+```
+
+And add your session cookie to the file, and then run the script:
+
+```
+$ ./get-inputs.sh
+```
+
 Benchmarking
 ============
 
