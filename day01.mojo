@@ -23,24 +23,19 @@ struct MultiMatcher:
     var pfx: List[Int32]
     var msk: List[Int32]
 
-    fn __init__(inout self, words: List[String]):
+    fn __init__(inout self, words: List[String]) raises:
         self.fcv = List[UInt8]()
         self.pfx = List[Int32]()
         self.msk = List[Int32]()
-        for i in range(len(words)):
-            self.add(words[i])
+        for w in words:
+            self.add(w[])
 
-    fn add(inout self, s: String):
-        l = len(s)
-        # s._buffer[l - 1] == ord(s[i]); but works faster it seems
-        # Not sure if accessing _buffer is discouraged? Probably will break one day.
-        self.fcv.append(s._buffer[l - 1])
+    fn add(inout self, s: String) raises:
+        self.fcv.append(ord(s[-1]))
         var r: Int32 = 0
         var m: Int32 = 0
-        # While iterators are supported in Mojo, none of the standard library
-        # types implement them, have to use range(), which does work.
-        for i in range(l - 1):
-            r = (r << 8) + int(s._buffer[i])
+        for c in s[:-1]:
+            r = (r << 8) + ord(c)
             m = (m << 8) + 0xFF
         self.pfx.append(r)
         self.msk.append(m)
