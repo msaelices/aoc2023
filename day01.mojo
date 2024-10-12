@@ -101,8 +101,8 @@ fn main() raises:
             var d2 = 0
             # last four characters code
             var l4: Int32 = 0
-            for i in range(s.size):
-                c = int(s[i])
+            for c_ref in s.as_bytes_span():
+                c = int(c_ref[])
                 var d = -1
                 if c >= zero and c <= nine:
                     d = c - zero
@@ -114,8 +114,8 @@ fn main() raises:
                     d1 = d
                     break
             l4 = 0
-            for i in range(s.size - 1, -1, -1):
-                c = int(s[i])
+            for c_ref in s.as_bytes_span()[::-1]:
+                c = int(c_ref[])
                 var d = -1
                 if c >= zero and c <= nine:
                     d = c - zero
