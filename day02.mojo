@@ -1,4 +1,4 @@
-from parser import *
+from parser import make_parser
 from collections import Counter
 from os.atomic import Atomic
 from wrappers import run_multiline_task
