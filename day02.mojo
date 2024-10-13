@@ -3,9 +3,6 @@ from collections import Counter
 from os.atomic import Atomic
 from wrappers import run_multiline_task
 
-# Replaces ord('a')
-alias ord_a = ord("a")
-
 
 fn maxballs(line: String) raises -> Counter[String]:
     """
